@@ -1,0 +1,40 @@
+<p>
+    <strong>Name:</strong>
+    <%= @customer.name %>
+</p>
+<p>
+    <strong>Surname:</strong>
+    <%= @customer.surname %>
+</p>
+<p>
+    <strong>Email:</strong>
+    <%= @customer.email %>
+</p>
+<p>
+    <strong>Mobile:</strong>
+    <%= @customer.mobile %>
+</p>
+<p>
+    <strong>Created at:</strong>
+    <%= @customer.created_at %>
+</p>
+<hr>
+<h2>Reservation Dates</h2>
+<table>
+<% @customer.reservations.each do |reservation| %>
+    <tr>
+    <td><%= reservation.date %></td>
+    <td><%= reservation.reservation_code %></td>
+    <td><%= link_to 'Edit', edit_customer_reservation_path(@customer, reservation) %></td>
+    <td><%= link_to 'Destroy', customer_reservation_path(@customer, reservation),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }%></td>
+    </tr>
+<% end %>
+</table>
+<hr>
+<p>
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'New Reservation', new_customer_reservation_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+</p>

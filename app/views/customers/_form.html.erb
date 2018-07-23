@@ -1,0 +1,21 @@
+<%= form_with(model: @customer, local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :surname %><br>
+    <%= form.text_field :surname %>
+  </p>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+  <p>
+    <%= form.label :mobile %><br>
+    <%= form.text_field :mobile %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,35 @@
+<p>Hello</p>
+
+<%= link_to 'New Customer', new_customer_path %>
+
+<h2>Customers</h2>
+<table>
+  <tr>
+    <th>Customer ID</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Created at:</th>
+    <th>Reservations:</th>
+    <th></th>
+  </tr>
+ 
+  <% @customer.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td><%= customer.name %></td>
+      <td><%= customer.surname %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.mobile %></td>
+      <td><%= customer.created_at.strftime('%d-%m-%Y') %></td>
+      <td><%= customer.reservations.count %></td>
+      <td><%= link_to 'Show', customer_path(customer) %></td>
+      <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+      <td><%= link_to 'Destroy', customer_path(customer),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }%></td>
+    </tr>
+  <% end %>
+
+</table>
